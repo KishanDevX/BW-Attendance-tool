@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+  --primary-color: #0f172a;
+  --secondary-color: #1e293b;
+
+  --accent-red: #ef4444cd;
+  --accent-green: #22c55eb6;
+  --accent-yellow: #f3bb2eec;
+  --accent-blue: #3390ec;
+
+  --font-size-sm: 0.8rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.4rem;
+
+  --font-bold-sm: 300;
+  --font-bold-md: 400;
+  --font-bold-lg: 600;
+
+  --text-color-primary: #f8fafc;
+  --text-color-secondary: #cbd5f5;
+  --text-color-tertiary: #64748b;
+
+  --gap-xsm: 0.5rem;
+  --gap-sm: 1rem;
+  --gap-md: 2rem;
+  --gap-lg: 3rem;
+
+  --border-radius-md: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+button,
+ul,
+li,
+a,
+input,
+textarea {
+  all: unset;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE and old Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+body {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.view-area {
+  max-width: 30rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 var(--gap-md);
+  background-color: var(--primary-color);
+}

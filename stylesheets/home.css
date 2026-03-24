@@ -1,0 +1,46 @@
+.home-page {
+  justify-content: center;
+}
+
+.head1 {
+  font-size: var(--font-size-lg);
+  color: var(--text-color-primary);
+  font-weight: var(--font-bold-lg);
+}
+
+.desc1 {
+  color: var(--text-color-tertiary);
+}
+
+.home-btns {
+  /* background-color: red; */
+  display: flex;
+  gap: var(--gap-sm);
+  flex-direction: column;
+  margin-top: var(--gap-md);
+  font-weight: var(--font-bold-sm);
+}
+
+.url-btn {
+  padding: var(--gap-sm);
+  border-left: 0.5rem solid var(--secondary-color);
+  color: var(--text-color-secondary);
+  background-color: #1e293b24;
+}
+
+.credit-card {
+  background-color: var(--secondary-color);
+  padding: var(--gap-sm);
+  border: 2px solid #5961f9;
+  margin-top: var(--gap-sm);
+}
+
+.credit-card h1 {
+  color: #5961f9;
+  font-size: var(--font-size-md);
+}
+
+.credit-card p {
+  color: var(--text-color-secondary);
+  font-size: var(--font-size-sm);
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../stylesheets/process.css" />
+  </head>
+  <body>
+    <div class="view-area process-page">
+      <div class="no-stud-warn">
+        <h5>Add students, to proceed</h5>
+        <p>There are no students available to take attendance</p>
+        <a href="./students.html">Add students</a>
+      </div>
+      <div class="recheck-sec">
+        <div class="presenties-box box">
+          <h1>Present students: <span class="present-len">0</span></h1>
+          <ul class="present-list">
+            <!-- dynamic data -->
+          </ul>
+        </div>
+        <div class="absenties-box box">
+          <h1>Absent students: <span class="absent-len">0</span></h1>
+          <ul class="absent-list">
+            <!-- dynamic data -->
+          </ul>
+        </div>
+        <button class="confirm-btn">Cofirm & done</button>
+      </div>
+      <div class="back-btn">
+        <a href="../index.html">x</a>
+      </div>
+      <div class="stud-info-card">
+        <div class="stud-roll-no">
+          <span>Roll no.</span>
+          <span id="ins-roll">2</span>
+        </div>
+        <div class="stud-name">
+          <h4>Student's Name</h4>
+          <span id="ins-name">Kishan Kumar</span>
+        </div>
+        <div class="process-btns">
+          <button class="present-btn">Present</button>
+          <button class="absent-btn">Absent</button>
+        </div>
+      </div>
+    </div>
+    <script src="../script.js"></script>
+  </body>
+</html>

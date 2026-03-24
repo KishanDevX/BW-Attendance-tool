@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All students</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../stylesheets/students.css" />
+  </head>
+  <body>
+    <div class="view-area students-page">
+      <div class="alert-screen">
+        <div class="alert-box">
+          <h4>Are you sure, deleting all students?</h4>
+          <p>The students name will be permanently removed</p>
+          <div class="alert-opts">
+            <button class="confirm-del">Proceed</button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <div class="add-stud-box">
+        <input id="stud-name-input" type="text" placeholder="Student's name" />
+        <button class="save-btn">+</button>
+      </div>
+      <h1>List of students (<span class="stud-strength">0</span>)</h1>
+      <ul class="stud-list-box">
+        <!-- dynamic data -->
+      </ul>
+      <div class="options-box">
+        <button class="del-all">Clear all</button>
+        <button class="settings">Settings</button>
+      </div>
+    </div>
+    <script>
+      let all_students = JSON.parse(localStorage.getItem("student-list")) || [];
+
+      const stud_list_box = document.querySelector(".stud-list-box");
+      const stud_name_input = document.querySelector("#stud-name-input");
+      const save_btn = document.querySelector(".save-btn");
+      const stud_strength = document.querySelector(".stud-strength");
+
+      const alert_screen = document.querySelector(".alert-screen");
+      const del_all = document.querySelector(".del-all");
+      const confirm_del = document.querySelector(".confirm-del");
+      const cancel_btn = document.querySelector(".cancel-btn");
+
+      const update_ui_list = () => {
+        stud_list_box.innerHTML = "";
+        if (all_students.length == 0) {
+          stud_list_box.innerHTML =
+            "<p>No students available, add them now :)</p>";
+        }
+        stud_strength.innerText = all_students.length;
+        all_students.forEach((stud, idx) => {
+          stud_list_box.innerHTML += `<li>${idx + 1}) ${stud}</li>`;
+        });
+      };
+
+      update_ui_list();
+
+      const save_state = () => {
+        all_students.sort();
+        update_ui_list();
+        stud_name_input.value = "";
+        localStorage.setItem("student-list", JSON.stringify(all_students));
+      };
+
+      save_btn.addEventListener("click", () => {
+        if (stud_name_input.value !== "") {
+          all_students.push(stud_name_input.value.toLowerCase());
+        }
+        save_state();
+      });
+
+      del_all.addEventListener("click", () => {
+        alert_screen.style.visibility = "visible";
+      });
+
+      confirm_del.addEventListener("click", () => {
+        localStorage.removeItem("student-list");
+        all_students = [];
+        alert_screen.style.visibility = "hidden";
+        update_ui_list();
+      });
+
+      cancel_btn.addEventListener("click", () => {
+        alert_screen.style.visibility = "hidden";
+      });
+    </script>
+  </body>
+</html>
