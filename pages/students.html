@@ -6,6 +6,10 @@
     <title>All students</title>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="../stylesheets/students.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="view-area students-page">
@@ -18,6 +22,12 @@
             <button class="cancel-btn">Cancel</button>
           </div>
         </div>
+      </div>
+      <div class="cmd-box">
+        <span class="close-cmd">x</span>
+        <h1>Add all students</h1>
+        <textarea placeholder="paste all students here"></textarea>
+        <button class="add-all-btn">Add them all</button>
       </div>
       <div class="add-stud-box">
         <input id="stud-name-input" type="text" placeholder="Student's name" />
@@ -33,6 +43,77 @@
       </div>
     </div>
     <script>
+      const defStudents = [
+        "Aadeesh Maurya",
+        "Ankit Jafee",
+        "Aayush",
+        "Adarsh Mondal",
+        "Ali Hamid",
+        "Aman Deep Yadav",
+        "Anant Kaser",
+        "Aniket Kumar Agrahar",
+        "Anshika Rai",
+        "Anshul Chandra",
+        "Arpit Tripathi",
+        "Arya Singh",
+        "Ayan",
+        "Ayush Kesharwani",
+        "Bhanu Pratap Singh",
+        "Divyansh Jaiswal",
+        "Ekta Khan",
+        "Faizullah",
+        "Fizan Khan",
+        "Fizan Anees",
+        "Hanza Ansari",
+        "Harsh Gupta",
+        "Harsh Mishra",
+        "Hritik Singh",
+        "Indresh Singh",
+        "Insha",
+        "Jahid Abdullah",
+        "Kishan Kumar",
+        "Krishna",
+        "Mohammad Saker",
+        "Mohd Arshad",
+        "Naman Soni",
+        "Om Prakash Sahu",
+        "Om Vikram Singh (Dimy)",
+        "Om Jaiswal",
+        "Piyush Kumar Sharma",
+        "Pooja Kumari",
+        "Prashant Shukla",
+        "Priyanshi Singh",
+        "Pushpraj",
+        "Ram Krishna Pandey",
+        "Rishant Singh",
+        "Rishi Dubey",
+        "Satyansh Srivastava",
+        "Sayon Manna",
+        "Shiva Khan",
+        "Shiva Tiwari",
+        "Shivam",
+        "Shivam Singh",
+        "Shivam Yadav",
+        "Shreey Kesharwani",
+        "Shreya Gupta",
+        "Shyama Kasera",
+        "Smriti Prajapati",
+        "Soniya Mondal",
+        "Sparsh Gupta",
+        "Tanvi Gupta",
+        "Tanu Shree Yadav",
+        "Utkarsh Dubey",
+        "Vaidehi Singh",
+        "Vaishnavi Singh",
+        "Vinayak Dubey",
+        "Vishwas Pandey",
+        "Yatharth Upadhyay",
+        "Yawar Ahmad",
+        "Zoya Khan",
+      ];
+
+      console.log(defStudents.length);
+
       let all_students = JSON.parse(localStorage.getItem("student-list")) || [];
 
       const stud_list_box = document.querySelector(".stud-list-box");
@@ -44,6 +125,10 @@
       const del_all = document.querySelector(".del-all");
       const confirm_del = document.querySelector(".confirm-del");
       const cancel_btn = document.querySelector(".cancel-btn");
+      const settings = document.querySelector(".settings");
+
+      const cmd_box = document.querySelector(".cmd-box");
+      const close_cmd = document.querySelector(".close-cmd");
 
       const update_ui_list = () => {
         stud_list_box.innerHTML = "";
@@ -53,13 +138,32 @@
         }
         stud_strength.innerText = all_students.length;
         all_students.forEach((stud, idx) => {
-          stud_list_box.innerHTML += `<li>${idx + 1}) ${stud}</li>`;
+          stud_list_box.innerHTML += `
+          <li>${idx + 1}) ${stud}
+            <i class="ri-delete-back-2-line stud-rem-btn"></i>
+          </li>
+          `;
         });
       };
 
       update_ui_list();
 
       const save_state = () => {
+        console.log("stats");
+        if (stud_name_input.value == "kk") {
+          console.log("kk says");
+          alert(
+            "Kishan Said: Class 12th, all PCM students added successfully.",
+          );
+          // all_students = defStudents;
+          all_students = defStudents.map((s) => s.toLowerCase());
+        }
+
+        if (stud_name_input.value == "kkk") {
+          cmd_box.style.visibility = "visible";
+          return;
+        }
+
         all_students.sort();
         update_ui_list();
         stud_name_input.value = "";
@@ -86,6 +190,24 @@
 
       cancel_btn.addEventListener("click", () => {
         alert_screen.style.visibility = "hidden";
+      });
+
+      close_cmd.addEventListener("click", () => {
+        cmd_box.style.visibility = "hidden";
+      });
+
+      settings.addEventListener("click", () => {
+        alert("This feature will be added soon..");
+      });
+
+      stud_list_box.addEventListener("click", (e) => {
+        if (e.target.classList.contains("stud-rem-btn")) {
+          const li = e.target.parentElement;
+          const index = Array.from(stud_list_box.children).indexOf(li);
+
+          all_students.splice(index, 1);
+          save_state();
+        }
       });
     </script>
   </body>

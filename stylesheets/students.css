@@ -67,6 +67,15 @@ h1 {
   flex-shrink: 0;
   white-space: nowrap;
   text-transform: capitalize;
+  position: relative;
+}
+
+.stud-rem-btn {
+  color: var(--accent-red);
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  right: 5px;
 }
 
 .options-box {
@@ -109,10 +118,6 @@ h1 {
 }
 
 .alert-box {
-  /* position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background-color: white;
   padding: var(--gap-md);
   width: 80%;
@@ -133,4 +138,46 @@ h1 {
   display: flex;
   gap: var(--gap-md);
   color: var(--accent-red);
+}
+
+.cmd-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+  width: 80%;
+  padding: var(--gap-sm);
+  z-index: 10;
+  display: flex;
+  gap: var(--gap-sm);
+  flex-direction: column;
+  border: 2px solid var(--secondary-color);
+  background-color: var(--primary-color);
+  box-shadow: 0 0 100px black;
+  visibility: hidden;
+}
+
+.cmd-box h1 {
+  font-size: var(--font-size-lg);
+  color: var(--accent-yellow);
+}
+
+.cmd-box textarea {
+  /* background-color: var(--secondary-color); */
+  width: 100%;
+  flex: 1;
+  color: var(--text-color-primary);
+}
+
+.add-all-btn {
+  background-color: var(--accent-blue);
+  color: var(--text-color-primary);
+  align-self: center;
+  padding: 0.5rem 2rem;
+}
+
+.close-cmd {
+  color: var(--text-color-primary);
+  align-self: flex-end;
 }

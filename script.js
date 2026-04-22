@@ -13,6 +13,8 @@ const absent_len = document.querySelector(".absent-len");
 const absent_list = document.querySelector(".absent-list");
 const confirm_btn = document.querySelector(".confirm-btn");
 
+const thank_sec = document.querySelector(".thank-sec");
+
 const no_stud_warn = document.querySelector(".no-stud-warn");
 if (student_list.length == 0) {
   no_stud_warn.style.display = "flex";
@@ -129,8 +131,16 @@ confirm_btn.addEventListener("click", () => {
     })
     .catch((err) => {
       console.error("Failed to copy:", err);
+      alert("failed to copy!! : \n", err);
     });
 
-  const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-  window.open(url, "_blank");
+  // console.log(thank_sec.style);
+  // thank_sec.style.visibility = "visible";
+  // console.log(thank_sec.style);
+  alert(
+    "Kishan Said: Thankyou Sir! for using this tool, no manual writing or typing, attendance has been copied :)",
+  );
+  // console.log(thank_sec);
+  // const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+  // window.open(url, "_blank");
 });
