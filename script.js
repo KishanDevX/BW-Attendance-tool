@@ -119,11 +119,13 @@ const capitalizeWords = (str) => {
 
 confirm_btn.addEventListener("click", () => {
   text = `PRESENT STUDENTS (${presenties.length})\n`;
-  text += `Date: *${getFormattedDate()}*`;
+  text += `Date: *${getFormattedDate()}*\n`;
   presenties.forEach((stud, idx) => {
     text += `\n  ${idx + 1}. ${capitalizeWords(stud)}`;
   });
-  console.log(text);
+  text +=
+    "\n-----------\n Made by Kishan (Instagram: codr_kishanx17) ,\n Know more: https://kishan16.vercel.app/";
+  // console.log(text);
   navigator.clipboard
     .writeText(text)
     .then(() => {
