@@ -118,14 +118,14 @@ const capitalizeWords = (str) => {
 };
 
 confirm_btn.addEventListener("click", () => {
-  text = `PRESENT STUDENTS (${presenties.length})\n`;
+  text = `PRESENT STUDENTS (${presenties.length}/${student_list.length})\n`;
   text += `Date: *${getFormattedDate()}*\n`;
   presenties.forEach((stud, idx) => {
     text += `\n  ${idx + 1}. ${capitalizeWords(stud)}`;
   });
   text +=
-    "\n-----------\n Made by Kishan (Instagram: codr_kishanx17) ,\n Know more: https://kishan16.vercel.app/";
-  // console.log(text);
+    "\n\n----------------------------\n Made by codr_kishanx17 (IG),\n Follow for updates & stay connected :) \n web: https://kishan16.vercel.app/";
+  console.log(text);
   navigator.clipboard
     .writeText(text)
     .then(() => {
